@@ -6,28 +6,26 @@ A full-stack Todo application built with the MERN stack (MongoDB, Express.js, Re
 
 **Welcome to the MERN Stack Live Coding Contest!**
 
-You have been given a partially implemented Todo application. Your task is to complete **4 missing functions** to make the application fully functional.
+You have a partially implemented Todo application. Your task is to complete **4 specific functions** to make the app fully functional.
 
-### 🎯 Your Mission
-
-You need to implement the following functions:
+### 🎯 Your Mission: Complete These 4 Functions
 
 #### Frontend (React) - 2 Functions
-1. **`handleSubmit`** in `frontend/src/components/Input.jsx` - Create new todo
-2. **`deleteTodo`** in `frontend/src/components/Todos.jsx` - Delete existing todo
+1. **`handleSubmit`** in `frontend/src/components/Input.jsx` - Handle form submission to create todos
+2. **`deleteTodo`** in `frontend/src/components/Todos.jsx` - Handle delete button clicks
 
 #### Backend (Node.js/Express) - 2 Functions  
-3. **`createTodo`** in `backend/controllers/todoController.js` - API endpoint to create todo
-4. **`deleteTodo`** in `backend/controllers/todoController.js` - API endpoint to delete todo
+3. **`createTodo`** in `backend/controllers/todoController.js` - API endpoint for POST `/api/todos`
+4. **`deleteTodo`** in `backend/controllers/todoController.js` - API endpoint for DELETE `/api/todos/:id`
 
 ### ⏰ Contest Rules
 
-- **Time Limit**: 45 minutes
-- **Goal**: Implement all 4 functions to make the app fully functional
-- **Git Workflow**: Work on your own branch and commit each function separately
-- **Testing**: You should be able to add and delete todos successfully
-- **Resources**: You can use documentation, but no external help
-- **Total Score**: 100 points (20 points per section)
+- **Time Limit**: 45 minutes total
+- **Goal**: All 4 functions must work correctly
+- **Git Requirement**: Create personal branch + 4 separate commits (one per function)
+- **Success Criteria**: Add and delete todos without errors
+- **Resources Allowed**: Documentation only (no external help)
+- **Total Score**: 100 points divided into 5 categories (20 points each)
 
 ### 📊 Scoring Breakdown (100 Total Points)
 
@@ -61,123 +59,105 @@ You need to implement the following functions:
 - No console errors
 - User experience quality
 
-### 🚀 Getting Started
+### 🚀 Quick Start Guide
 
-1. **Clone and Setup** (5 minutes)
-   ```bash
-   git clone [your-repo-url]
-   cd MERN-Todoapp-master
-   ```
-
-2. **Create Your Branch** (IMPORTANT - Git Workflow)
-   ```bash
-   # Create and switch to your personal branch
-   git checkout -b [your-name]-contest
-   # Example: git checkout -b john-doe-contest
-   ```
-
-3. **Backend Setup**
-   ```bash
-   cd backend
-   npm install
-   # Create .env file with your MongoDB connection
-   npm run dev
-   ```
-
-4. **Frontend Setup** (in new terminal)
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
-
-5. **Find the TODOs**
-   Look for `// TODO: Implement this function` comments in the code.
-
-### 🔄 Git Workflow Requirements
-
-**IMPORTANT**: You must follow this Git workflow for full points!
-
-#### For Each Function Implementation:
-1. **Implement the function**
-2. **Test that it works**
-3. **Commit with descriptive message**:
-   ```bash
-   # Example commit messages:
-   git add .
-   git commit -m "feat: implement handleSubmit function in Input.jsx"
-   git commit -m "feat: implement deleteTodo function in Todos.jsx"
-   git commit -m "feat: implement createTodo API endpoint"
-   git commit -m "feat: implement deleteTodo API endpoint"
-   ```
-
-#### Final Steps:
+#### Step 1: Clone & Create Branch (5 minutes)
 ```bash
-# Push your branch when complete
-git push origin [your-name]-contest
+git clone [your-repo-url]
+cd MERN-Todoapp-master
 
-# Example: git push origin john-doe-contest
+# Create your personal branch (REQUIRED for scoring)
+git checkout -b [your-name]-contest
+# Example: git checkout -b john-doe-contest
 ```
 
-**Expected Git History**: You should have **4 commits minimum** - one for each function implementation.
+#### Step 2: Start Backend Server
+```bash
+cd backend
+npm install
+
+# Create .env file with MongoDB connection:
+# MONGODB_URI=your_mongodb_connection_string
+# JWT_SECRET=your_jwt_secret_key
+# PORT=3005
+
+npm run dev
+```
+✅ **Backend should run on**: `http://localhost:3005`
+
+#### Step 3: Start Frontend Server (New Terminal)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+✅ **Frontend should run on**: `http://localhost:5173`
+
+#### Step 4: Find & Implement Functions
+Look for `// TODO: Implement this function` comments in the code.
+
+### 🔄 Git Workflow (REQUIRED for Full Points)
+
+**You MUST follow this workflow:**
+
+#### For Each Function:
+1. ✅ **Implement** the function
+2. ✅ **Test** it works (try the feature in browser)
+3. ✅ **Commit** with specific message:
+
+```bash
+# After implementing each function:
+git add .
+
+# Use these EXACT commit message formats:
+git commit -m "feat: implement handleSubmit function in Input.jsx"
+git commit -m "feat: implement deleteTodo function in Todos.jsx" 
+git commit -m "feat: implement createTodo API endpoint"
+git commit -m "feat: implement deleteTodo API endpoint"
+```
+
+#### Final Submission:
+```bash
+# When all 4 functions are complete:
+git push origin [your-name]-contest
+```
+
+**⚠️ IMPORTANT**: You need exactly **4 commits** (one per function) for full Git points!
 
 ### 📋 Function Requirements
 
-### � Git Workflow Requirements
-
-**IMPORTANT**: You must follow this Git workflow for full points!
-
-#### For Each Function Implementation:
-1. **Implement the function**
-2. **Test that it works**
-3. **Commit with descriptive message**:
-   ```bash
-   # Example commit messages:
-   git add .
-   git commit -m "feat: implement handleSubmit function in Input.jsx"
-   git commit -m "feat: implement deleteTodo function in Todos.jsx"
-   git commit -m "feat: implement createTodo API endpoint"
-   git commit -m "feat: implement deleteTodo API endpoint"
-   ```
-
-#### Final Steps:
-```bash
-# Push your branch when complete
-git push origin [your-name]-contest
-
-# Example: git push origin john-doe-contest
-```
-
-**Expected Git History**: You should have **4 commits minimum** - one for each function implementation.
-
 #### 1. Frontend - `handleSubmit` (Input.jsx)
+**What it should do:**
 - Prevent default form submission
 - Make POST request to `http://localhost:3005/api/todos`
-- Include authorization header with JWT token
-- Send todo data in request body
-- Update state using dispatch on success
-- Clear input field after successful creation
+- Include authorization header with JWT token: `Bearer ${user.token}`
+- Send todo data in request body: `{todo: "user input"}`
+- Update state using `dispatch({type: "CREATE_TODO", payload: json})`
+- Clear input field on success: `setTodo("")` and `input.current.blur()`
 
 #### 2. Frontend - `deleteTodo` (Todos.jsx)  
-- Make DELETE request to `http://localhost:3005/api/todos/:id`
-- Include authorization header with JWT token
-- Update state using dispatch on success
-- Handle errors appropriately
+**What it should do:**
+- Make DELETE request to `http://localhost:3005/api/todos/${t._id}`
+- Include authorization header with JWT token: `Bearer ${user.token}`
+- Update state using `dispatch({type: "DELETE_TODO", payload: json})`
+- Handle errors appropriately (log to console)
 
 #### 3. Backend - `createTodo` (todoController.js)
-- Extract todo from request body
-- Get user ID from authenticated user (`req.user._id`)
-- Create new todo in database with Mongoose
+**What it should do:**
+- Extract `{todo}` from `req.body`
+- Get user ID from `req.user._id` (already authenticated)
+- Create new todo: `await Todos.create({todo, uid})`
 - Return created todo with 200 status
-- Handle errors with appropriate status codes
+- Handle errors with try-catch and 400 status
 
 #### 4. Backend - `deleteTodo` (todoController.js)
-- Extract ID from request parameters
-- Validate MongoDB ObjectId format
-- Find and delete todo from database
-- Handle case when todo doesn't exist
+**What it should do:**
+- Extract `id` from `req.params`
+- Validate ObjectId: `mongoose.Types.ObjectId.isValid(id)`
+- Find and delete: `await Todos.findByIdAndDelete({_id: id})`
+- Handle case when todo doesn't exist (404 status)
 - Return deleted todo with 200 status
-- Handle errors with appropriate status codes
+- Handle errors with try-catch and 400 status
 
 ### 🔍 Available Resources
 
@@ -188,13 +168,13 @@ git push origin [your-name]-contest
 
 ### ✅ Testing Your Implementation
 
-1. Start both servers
-2. Register/Login to the application
-3. Try adding a new todo (should work if functions 1 & 3 are correct)
-4. Try deleting a todo (should work if functions 2 & 4 are correct)
-5. Check browser console and server logs for errors
+1. **Start both servers** (backend on 3005, frontend on 5177)
+2. **Register/Login** to the application
+3. **Test adding** a new todo (should work if functions 1 & 3 are correct)
+4. **Test deleting** a todo (should work if functions 2 & 4 are correct)
+5. **Check console** for errors in browser and server logs
 
-### 🏁 Submission
+### 🏁 Submission Process
 
 When you complete the functions:
 1. **Test the application thoroughly**
